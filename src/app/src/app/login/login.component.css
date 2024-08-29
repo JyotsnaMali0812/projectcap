@@ -1,73 +1,86 @@
-/* Global Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('assets/images/background.jpg'); /* Path to your background image */
-    background-size: cover;
-    background-position: center;
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/assets/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
 }
 
-/* Login Container */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Login Form */
-.login-form {
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+.login-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  width: 300px;
+  text-align: center;
 }
 
-.login-form h1 {
-    margin-bottom: 20px;
+.login-box h2 {
+  margin-bottom: 20px;
 }
 
-.login-form label {
-    display: block;
-    margin: 10px 0 5px;
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-.login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-.login-form button {
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.login-form button:hover {
-    background-color: #0056b3;
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.login-form p {
-    margin-top: 15px;
+button:hover {
+  background-color: #218838;
 }
 
-.login-form a {
-    color: #007bff;
-    text-decoration: none;
+.success-message {
+  color: #28a745;
+  margin-top: 10px;
 }
 
-.login-form a:hover {
-    text-decoration: underline;
+.error-message {
+  color: #dc3545;
+  margin-top: 10px;
+}
+
+.register-link {
+  margin-top: 15px;
+}
+
+.register-link a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 12px;
 }
