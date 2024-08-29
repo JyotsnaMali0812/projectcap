@@ -1,61 +1,73 @@
+/* Global Styles */
 body {
-    background-image: url('/assets/images/img1.jpg');
-    background-attachment: fixed;
-    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/images/background.jpg'); /* Path to your background image */
     background-size: cover;
-    font-family: sans-serif;
-    margin-top: 40px;
+    background-position: center;
 }
-.reg {
-    width: 800px;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: auto;
-    color: #FFFFFF;
-    padding: 10px 0;
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Login Form */
+.login-form {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
-    border-radius: 15px 15px 0 0;
 }
-.form {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 800px;
-    margin: auto;
+
+.login-form h1 {
+    margin-bottom: 20px;
 }
-form {
+
+.login-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-form input {
+    width: 100%;
     padding: 10px;
-}
-.name {
-    margin-left: 25px;
-    margin-top: 30px;
-    width: 125px;
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-}
-.email, .password {
-    position: relative;
-    left: 200px;
-    top: -37px;
-    line-height: 40px;
-    border-radius: 6px;
-    padding: 0 22px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
 }
-button {
-    margin-left: 200px;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 6px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
+
+.login-form button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
-p {
-    color: white;
-    margin-top: 20px;
-    margin-left: 200px;
+
+.login-form button:hover {
+    background-color: #0056b3;
 }
-p a {
-    color: #00f;
+
+.login-form p {
+    margin-top: 15px;
+}
+
+.login-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-form a:hover {
     text-decoration: underline;
 }
