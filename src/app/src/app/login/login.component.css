@@ -1,0 +1,61 @@
+body {
+    background-image: url('/assets/images/img1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+.reg {
+    width: 800px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: auto;
+    color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+}
+.form {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 800px;
+    margin: auto;
+}
+form {
+    padding: 10px;
+}
+.name {
+    margin-left: 25px;
+    margin-top: 30px;
+    width: 125px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+.email, .password {
+    position: relative;
+    left: 200px;
+    top: -37px;
+    line-height: 40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+button {
+    margin-left: 200px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+p {
+    color: white;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+p a {
+    color: #00f;
+    text-decoration: underline;
+}
