@@ -1,44 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  submitted = false;
-  loginSuccess = false;
-  loginInvalid = false;
+  loginError: string | null = null;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', Validators.required]
     });
   }
 
-  get f() { return this.loginForm.controls; }
+  ngOnInit(): void {}
 
-  onSubmit() {
-    this.submitted = true;
+  get email() {
+    return this.loginForm.get('email');
+  }
 
-    // Stop if the form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
+  get password() {
+    return this.loginForm.get('password');
+  }
 
-    // Example: Hardcoded credentials
-    const validEmail = 'test@example.com';
-    const validPassword = 'password123';
-
-    if (this.loginForm.value.email === validEmail && this.loginForm.value.password === validPassword) {
-      this.loginSuccess = true;
-      this.loginInvalid = false;
-    } else {
-      this.loginInvalid = true;
-      this.loginSuccess = false;
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      // Simulate login logic here. For demo purposes, let's assume login is successful.
+      if (email === 'test@example.com' && password === 'password123') {
+        this.router.navigate(['/dashboard']); // Redirect to a dashboard or home page
+      } else {
+        this.loginError = 'Invalid email or password.';
+      }
     }
   }
 }
