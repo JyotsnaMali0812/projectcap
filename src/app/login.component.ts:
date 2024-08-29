@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +7,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
+  loginForm: FormGroup;
+  submitted = false;
+  loginSuccess = false;
+  loginInvalid = false;
 
-  constructor(private router: Router) {}
+  constructor(private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    // Basic validation check
-    if (this.email && this.password) {
-      // Typically, you would also handle authentication here
-      // For demonstration, navigate to the registration page
-      this.router.navigate(['/register']);
+    this.submitted = true;
+
+    // Stop if the form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    // Example: Hardcoded credentials
+    const validEmail = 'test@example.com';
+    const validPassword = 'password123';
+
+    if (this.loginForm.value.email === validEmail && this.loginForm.value.password === validPassword) {
+      this.loginSuccess = true;
+      this.loginInvalid = false;
     } else {
-      alert('Please fill in both email and password');
+      this.loginInvalid = true;
+      this.loginSuccess = false;
     }
   }
 }
