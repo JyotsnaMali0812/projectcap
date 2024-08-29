@@ -1,30 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
-// Import Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component'; // Assuming you have a RegisterComponent
-
-// Define Routes
-const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' } // Default route
-];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent // Add your components here
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes) // Configure routing
+    FormsModule // Include FormsModule in the imports array
   ],
   providers: [],
   bootstrap: [AppComponent]
