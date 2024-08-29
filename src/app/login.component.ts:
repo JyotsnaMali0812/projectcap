@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,25 +7,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  email: string = '';
+  password: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-  }
+  constructor(private router: Router) {}
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      this.http.post('/api/users/login', this.loginForm.value).subscribe(
-        response => {
-          this.router.navigate(['/dashboard']);
-        },
-        error => {
-          alert('Invalid credentials');
-        }
-      );
+    // Basic validation check
+    if (this.email && this.password) {
+      // Typically, you would also handle authentication here
+      // For demonstration, navigate to the registration page
+      this.router.navigate(['/register']);
+    } else {
+      alert('Please fill in both email and password');
     }
   }
 }
