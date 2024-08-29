@@ -1,34 +1,37 @@
 <div class="login-container">
-  <div class="login-box">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email">
-        <div *ngIf="submitted && f.email.errors" class="error">
-          <div *ngIf="f.email.errors.required">Email is required.</div>
-          <div *ngIf="f.email.errors.email">Invalid email format.</div>
-        </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Enter your email"
+      />
+      <div *ngIf="email.errors?.required && (email.dirty || email.touched)" class="error-message">
+        Email is required.
       </div>
-
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password">
-        <div *ngIf="submitted && f.password.errors" class="error">
-          <div *ngIf="f.password.errors.required">Password is required.</div>
-          <div *ngIf="f.password.errors.minLength">Password must be at least 6 characters.</div>
-        </div>
+      <div *ngIf="email.errors?.email && (email.dirty || email.touched)" class="error-message">
+        Invalid email format.
       </div>
-
-      <button type="submit">Login</button>
-      
-      <div *ngIf="loginSuccess" class="success-message">Successfully logged in!</div>
-      <div *ngIf="loginInvalid" class="error-message">Invalid login credentials.</div>
-
-      <div class="register-link">
-        <a href="#">Register here</a>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        class="form-control"
+        placeholder="Enter your password"
+      />
+      <div *ngIf="password.errors?.required && (password.dirty || password.touched)" class="error-message">
+        Password is required.
       </div>
-    </form>
-  </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+    <p class="register-link">Don't have an account? <a routerLink="/register">Register here</a></p>
+  </form>
 </div>
